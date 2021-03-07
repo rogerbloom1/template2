@@ -1,12 +1,15 @@
 {
   "name": "template2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Starter template with JS, Node, Express, React",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:build": "npx webpack -w",
+    "dev": "npm-run-all --parallel watch:*",
+    "start": "node dist/server.js"
   },
-  "author": "",
+  "author": "Roger Bloom",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.6.0",
