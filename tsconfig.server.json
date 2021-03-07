@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "author": "./dist/",
+        "outDir": "./dist/",
         "noImplicitAny": true,
         "module": "CommonJS",
         "target": "ES5",

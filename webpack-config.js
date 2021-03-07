@@ -49,8 +49,8 @@ const clientConfiguration = {
             },
             {
                 test: /\.scss$/,
-                use: ["style-loader", "css-loader", "sass-loader",]
-            }
+                use: ["style-loader", "css-loader", "sass-loader"],
+            },
         ],
     },
     resolve: {
@@ -62,4 +62,4 @@ const clientConfiguration = {
     }
 };
 
-module.exports = [serverConfig, clientConfig];
+module.exports = [serverConfiguration, clientConfiguration];
