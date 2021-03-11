@@ -1,3 +1,4 @@
+import { IProduct } from "../../../client/utils/types";
 import Query from "../models";
 
 const getOneProduct = (id: number) => {
@@ -8,7 +9,12 @@ const getAllProducts = () => {
     return Query("SELECT * FROM products");
 };
 
+const insertProduct = (body: IProduct) => {
+    return Query("INSERT INTO products SET ?", [body]);
+};
+
 export default {
     getOneProduct,
-    getAllProducts
-}
+    getAllProducts,
+    insertProduct
+};

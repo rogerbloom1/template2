@@ -1,5 +1,5 @@
 import * as express from "express";
-import * as db from "../db/queries/products";
+import * as db from "../db/queries/categories";
 
 const router = express.Router();
 
@@ -11,14 +11,14 @@ router.get(
         next: express.NextFunction
     ) => {
         let id: number = parseInt(req.params.id);
-        let data: any;
+        let data: JSON;
         try {
             if (id) {
-                data = await db.getOneProduct(id);
+                data = await db.getOneCategory(id);
             } else {
-                data = await db.getAllProducts();
+                data = await db.getAllCategories();
             }
-
+        
             res.status(200).json(data);
         } catch(error) {
             next(error);
@@ -27,8 +27,8 @@ router.get(
 );
 
 
-
-/* router.post("/", async (
+/* 
+router.post("/", async (
     req: express.Request,
     res: express.Response,
     next: express.NextFunction
@@ -41,10 +41,10 @@ router.get(
     } catch (error) {
         next (error);
     }
-} */
+}
+ 
 
 
-
-})
+})*/
 
 export default router;
