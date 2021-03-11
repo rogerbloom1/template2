@@ -1,5 +1,6 @@
 import * as express from "express";
 import morgan from "morgan";
+import * as path from "path";
 import apiRouter from "./routes"
 import config from "./config"; 
 
@@ -22,7 +23,7 @@ app.use(
             try {
                 res.sendFile(path.join(__dirname, "../publi/index.html"));
             } catch (error) { 
-                next(err);
+                next(error);
         }
     }
 );
