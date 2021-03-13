@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { IProduct } from "./utils/types";
+import { IProduct } from "../utils/types";
 
 const Products: React.FC = () => {
     const [products, setProducts] = React.useState([]);
@@ -16,7 +16,7 @@ const Products: React.FC = () => {
         .catch((err) => console.log(err));
         };
 
-    }
+    
 
     return (
         <main>

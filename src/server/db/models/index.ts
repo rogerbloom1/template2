@@ -1,8 +1,7 @@
-import { rejects } from "assert";
 import * as mysql from "mysql";
 import config from "../../config";
 
-const connection = mysql.createPool(config);
+const connection = mysql.createPool(config.mysql);
 
 const Query = (query: string, values?: Array<any>) => {
     return new Promise((resolve, reject)  => {

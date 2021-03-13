@@ -6,8 +6,8 @@
         "target": "ES5",
         "jsx": "react",
         "allowSyntheticDefaultImports": true,
-        "allowJS": true,
-        "lib:": [
+        "allowJs": true,
+        "lib": [
             "ES2015", "DOM"
         ]
     },

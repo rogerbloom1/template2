@@ -1,6 +1,7 @@
 import * as React from "react";
 
 const AddProduct = () => {
+    const [feedback, setFeedback] = React.useState<string>("");
     const [Name, setName] = React.useState<string>("");
     const [CategoryID, setCategoryID] = React.useState<number>(1);
     const [Price, setPrice] = React.useState<number>(0);
@@ -28,15 +29,26 @@ const AddProduct = () => {
             body: JSON.stringify({Name, Price, OnSale, StockLevel, CategoryID}),
         })
             .then(res => res.json())
-            .then((res) => console.log(res))
-            .catch(err => console.log(err));
+            .then((res) => {
+                if(res) {
+                    setFeedback("Product added");
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+                setFeedback("An error occurred while adding product info. Try again or contact support."
+                );
+            });
     };
 
     return (
-        <main>
-            <h1>Add Product</h1>
-            <form onSubmit={formSubmit}>
-                <div>
+        <main className="container">
+            <h1 className="text-center">Add Product</h1>
+            <div className="row">
+                <p className="text-center">{feedback}</p>
+                <div className="card col-sm-6 mx-auto">
+            <form className="form" onSubmit={formSubmit}>
+                <div className="form-group">
                     <label htmlFor="productName">Product Name:</label>
                     <input 
                         type="text" 
@@ -44,25 +56,26 @@ const AddProduct = () => {
                         id="productName" 
                         onChange={(e) => setName(e.target.value)} />
                 </div>
-                <div>
-                    <label htmlFor="productCategory">Product Name:</label>
+                <div className="form-group">
+                    <label htmlFor="productCategory">Product Category:</label>
                     <select
                         name="productCategory" 
                         id="productCategory" 
                         onChange={(e) => setCategoryID(Number(e.target.value))} 
                     >
                         {categories.map((category) => {
-                            return 
+                            return (
                             <option value={category.CategoryID} key={category.CategoryID}>
                                 {category.Name}
                             </option>
+                        );
                         })}
                     </select>
                 </div>
                 <div>
                     <label htmlFor="productPrice">Price:</label>
                     <input 
-                        type="text" 
+                        type="number" 
                         name="productPrice" 
                         id="productPrice" 
                         onChange={(e) => setPrice(Number(e.target.value))} />
@@ -86,6 +99,8 @@ const AddProduct = () => {
                     <input type="submit" />
                 </div>
             </form>
+            </div>
+            </div>
         </main>
     );
 };

@@ -1,5 +1,5 @@
 import * as express from "express";
-import * as db from "../db/queries/products";
+import db from "../db/queries/products";
 
 const router = express.Router();
 
@@ -10,10 +10,13 @@ router.get(
         res: express.Response, 
         next: express.NextFunction
     ) => {
+        console.log("api/products");
         let id: number = parseInt(req.params.id);
         let data: any;
         try {
+            
             if (id) {
+                console.log(id)
                 data = await db.getOneProduct(id);
             } else {
                 data = await db.getAllProducts();
@@ -45,6 +48,6 @@ router.get(
 
 
 
-})
+//})
 
 export default router;

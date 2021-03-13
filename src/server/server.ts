@@ -1,5 +1,5 @@
 import * as express from "express";
-import morgan from "morgan";
+import * as morgan from "morgan";
 import * as path from "path";
 import apiRouter from "./routes"
 import config from "./config"; 
@@ -21,7 +21,7 @@ app.use(
         next: express.NextFunction
         ) => {
             try {
-                res.sendFile(path.join(__dirname, "../publi/index.html"));
+                res.sendFile(path.join(__dirname, "../public/index.html"));
             } catch (error) { 
                 next(error);
         }
@@ -35,6 +35,7 @@ app.use(
         res: express.Response, 
         next: express.NextFunction
         ) => {
+            console.log(err);
             res.status(500).json({ name: err.name, msg: err.message })
         }
     );

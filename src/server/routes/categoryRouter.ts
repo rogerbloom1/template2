@@ -1,5 +1,5 @@
 import * as express from "express";
-import * as db from "../db/queries/categories";
+import db from "../db/queries/categories";
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.get(
         next: express.NextFunction
     ) => {
         let id: number = parseInt(req.params.id);
-        let data: JSON;
+        let data: any;
         try {
             if (id) {
                 data = await db.getOneCategory(id);
