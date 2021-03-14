@@ -28,7 +28,7 @@ const AddProduct = () => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({Name, Price, OnSale, StockLevel, CategoryID}),
         })
-            .then(res => res.json())
+            .then((res) => res.json())
             .then((res) => {
                 if(res) {
                     setFeedback("Product added");
@@ -51,6 +51,7 @@ const AddProduct = () => {
                 <div className="form-group">
                     <label htmlFor="productName">Product Name:</label>
                     <input 
+                        className="form-control"
                         type="text" 
                         name="productName" 
                         id="productName" 
@@ -59,13 +60,16 @@ const AddProduct = () => {
                 <div className="form-group">
                     <label htmlFor="productCategory">Product Category:</label>
                     <select
+                        className="form-control"
                         name="productCategory" 
                         id="productCategory" 
                         onChange={(e) => setCategoryID(Number(e.target.value))} 
                     >
                         {categories.map((category) => {
                             return (
-                            <option value={category.CategoryID} key={category.CategoryID}>
+                            <option 
+                                value={category.CategoryID} 
+                                key={category.CategoryID}>
                                 {category.Name}
                             </option>
                         );

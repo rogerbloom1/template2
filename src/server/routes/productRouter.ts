@@ -13,8 +13,7 @@ router.get(
         console.log("api/products");
         let id: number = parseInt(req.params.id);
         let data: any;
-        try {
-            
+        try { 
             if (id) {
                 console.log(id)
                 data = await db.getOneProduct(id);
