@@ -28,9 +28,7 @@ router.get(
     }
 );
 
-
-
-/* router.post("/", async (
+router.post("/", async (
     req: express.Request,
     res: express.Response,
     next: express.NextFunction
@@ -43,10 +41,7 @@ router.get(
     } catch (error) {
         next (error);
     }
-} */
-
-
-
-//})
+}
+)
 
 export default router;

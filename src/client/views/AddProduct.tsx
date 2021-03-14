@@ -1,6 +1,7 @@
 import * as React from "react";
 
 const AddProduct = () => {
+    
     const [feedback, setFeedback] = React.useState<string>("");
     const [Name, setName] = React.useState<string>("");
     const [CategoryID, setCategoryID] = React.useState<number>(1);
@@ -96,7 +97,7 @@ const AddProduct = () => {
                     <input 
                         type="text" 
                         name="stockLevel" 
-                        id="productStockLevel" 
+                        id="stockLevel" 
                         onChange={(e) => setStockLevel(e.target.value)}/>
                 </div>
                 <div>
