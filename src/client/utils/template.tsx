@@ -1,11 +1,11 @@
 import * as React from "react";
 
-const App = () => {
+const Template = () => {
     return (
-        <main>
-            <h1>App</h1>
+        <main className="container">
+            <h1>Template</h1>
         </main>
     );   
 };
 
-export default App;
+export default Template;

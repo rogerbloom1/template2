@@ -19,7 +19,7 @@ const Products: React.FC = () => {
     
 
     return (
-        <main>
+        <main className="container">
             <div className="d-flex justify-content-between">
             <h1>Products</h1>
             <Link className="btn btn-outline-warning nav-link" to="/products/add">
